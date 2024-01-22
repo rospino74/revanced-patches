@@ -46,18 +46,8 @@ object HideSeekbarPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
         SeekbarPreferencesPatch.addPreferences(
-            SwitchPreference(
-                "revanced_hide_seekbar",
-                StringResource("revanced_hide_seekbar_title", "Hide seekbar in video player"),
-                StringResource("revanced_hide_seekbar_summary_on", "Video player seekbar is hidden"),
-                StringResource("revanced_hide_seekbar_summary_off", "Video player seekbar is shown")
-            ),
-            SwitchPreference(
-                "revanced_hide_seekbar_thumbnail",
-                StringResource("revanced_hide_seekbar_thumbnail_title", "Hide seekbar in video thumbnails"),
-                StringResource("revanced_hide_seekbar_thumbnail_summary_on", "Thumbnail seekbar is hidden"),
-                StringResource("revanced_hide_seekbar_thumbnail_summary_off", "Thumbnail seekbar is shown")
-            )
+            SwitchPreference("revanced_hide_seekbar"),
+            SwitchPreference("revanced_hide_seekbar_thumbnail")
         )
 
         SeekbarFingerprint.result!!.let {

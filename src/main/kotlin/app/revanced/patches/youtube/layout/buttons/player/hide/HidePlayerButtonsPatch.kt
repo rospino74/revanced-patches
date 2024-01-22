@@ -46,23 +46,7 @@ object HidePlayerButtonsPatch : BytecodePatch(
     setOf(PlayerControlsVisibilityModelFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_hide_player_buttons",
-                StringResource(
-                    "revanced_hide_player_buttons_title",
-                    "Hide previous & next video buttons"
-                ),
-                StringResource(
-                    "revanced_hide_player_buttons_summary_on",
-                    "Buttons are hidden"
-                ),
-                StringResource(
-                    "revanced_hide_player_buttons_summary_off",
-                    "Buttons are shown"
-                )
-            )
-        )
+        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(SwitchPreference("revanced_hide_player_buttons"))
 
         PlayerControlsVisibilityModelFingerprint.result?.apply {
             val callIndex = scanResult.patternScanResult!!.endIndex

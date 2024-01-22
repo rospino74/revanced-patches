@@ -24,14 +24,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 )
 object HideCastButtonPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext) {
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_hide_cast_button",
-                StringResource("revanced_hide_cast_button_title", "Hide cast button"),
-                StringResource("revanced_hide_cast_button_summary_on", "Cast button is hidden"),
-                StringResource("revanced_hide_cast_button_summary_off", "Cast button is shown")
-            )
-        )
+        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(SwitchPreference("revanced_hide_cast_button"))
 
         val buttonClass = context.findClass("MediaRouteButton")
             ?: throw PatchException("MediaRouteButton class not found.")

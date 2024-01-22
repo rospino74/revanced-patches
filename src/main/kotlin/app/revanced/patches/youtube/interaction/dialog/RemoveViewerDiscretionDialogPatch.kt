@@ -45,27 +45,7 @@ object RemoveViewerDiscretionDialogPatch : BytecodePatch(
                 "confirmDialog(Landroid/app/AlertDialog;)V"
 
     override fun execute(context: BytecodeContext) {
-        SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
-            SwitchPreference(
-                "revanced_remove_viewer_discretion_dialog",
-                StringResource(
-                    "revanced_remove_viewer_discretion_dialog_title",
-                    "Remove viewer discretion dialog"
-                ),
-                StringResource(
-                    "revanced_remove_viewer_discretion_dialog_summary_on",
-                    "Dialog will be removed"
-                ),
-                StringResource(
-                    "revanced_remove_viewer_discretion_dialog_summary_off",
-                    "Dialog will be shown"
-                ),
-                StringResource(
-                    "revanced_remove_viewer_discretion_dialog_user_dialog_message",
-                    "This does not bypass the age restriction. It just accepts it automatically."
-                )
-            )
-        )
+        SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(SwitchPreference("revanced_remove_viewer_discretion_dialog"))
 
         CreateDialogFingerprint.result?.mutableMethod?.apply {
             val showDialogIndex = implementation!!.instructions.lastIndex - 2

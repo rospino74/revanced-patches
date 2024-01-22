@@ -142,16 +142,10 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                     SwitchPreference("revanced_alt_thumbnail_stills"),
                     ListPreference(
                         "revanced_alt_thumbnail_stills_time",
-                        "revanced_alt_thumbnail_stills_time_title",
-                        null,
-                        ArrayResource(
-                            "revanced_alt_thumbnail_type_entries",
-
-                        ),
-                        ArrayResource(
-                            "revanced_alt_thumbnail_stills_time_entry_values",
-
-                        )
+                        titleKey = "revanced_alt_thumbnail_stills_time_title",
+                        summaryKey =  null,
+                        entriesKey = "revanced_alt_thumbnail_type_entries",
+                        entryValuesKey = "revanced_alt_thumbnail_stills_time_entry_values",
                     ),
                     SwitchPreference("revanced_alt_thumbnail_stills_fast"),
                     NonInteractivePreference(

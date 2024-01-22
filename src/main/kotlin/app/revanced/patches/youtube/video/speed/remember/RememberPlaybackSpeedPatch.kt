@@ -29,37 +29,21 @@ object RememberPlaybackSpeedPatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
-            SwitchPreference(
-                "revanced_remember_playback_speed_last_selected",
-                StringResource(
-                    "revanced_remember_playback_speed_last_selected_title",
-                    "Remember playback speed changes"
-                ),
-                StringResource(
-                    "revanced_remember_playback_speed_last_selected_summary_on",
-                    "Playback speed changes apply to all videos"
-                ),
-                StringResource(
-                    "revanced_remember_playback_speed_last_selected_summary_off",
-                    "Playback speed changes only apply to the current video"
-                )
-            ),
+            SwitchPreference("revanced_remember_playback_speed_last_selected"),
             ListPreference(
-                "revanced_playback_speed_default",
-                StringResource(
-                    "revanced_playback_speed_default_title",
-                    "Default playback speed"
-                ),
+                key = "revanced_playback_speed_default",
+                titleKey = "revanced_playback_speed_default_title",
+                summaryKey = null,
                 // Dummy data:
                 // Entries and values are set by Integrations code based on the actual speeds available,
                 // and the values set here are ignored and do nothing.
-                ArrayResource(
+                entries =  ArrayResource(
                     "revanced_playback_speed_default_entries",
-                    listOf(StringResource("revanced_playback_speed_default_entries", "1.0x"))
+                    listOf("revanced_playback_speed_default_entries")
                 ),
-                ArrayResource(
+                entryValues =  ArrayResource(
                     "revanced_playback_speed_default_entry_values",
-                    listOf(StringResource("revanced_playback_speed_default_entry_value", "1.0"))
+                    listOf("1.0")
                 )
             )
         )

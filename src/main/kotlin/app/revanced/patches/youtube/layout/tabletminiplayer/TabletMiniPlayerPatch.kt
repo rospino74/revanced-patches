@@ -50,14 +50,7 @@ object TabletMiniPlayerPatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext) {
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_tablet_miniplayer",
-                StringResource("revanced_tablet_miniplayer_title", "Enable tablet mini player"),
-                StringResource("revanced_tablet_miniplayer_summary_on", "Mini player is enabled"),
-                StringResource("revanced_tablet_miniplayer_summary_off", "Mini player is disabled")
-            )
-        )
+        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(SwitchPreference("revanced_tablet_miniplayer"))
 
         // First resolve the fingerprints via the parent fingerprint.
         MiniPlayerDimensionsCalculatorParentFingerprint.result

@@ -40,18 +40,7 @@ object SpoofDeviceDimensionsPatch : BytecodePatch(
         "Lapp/revanced/integrations/youtube/patches/spoof/SpoofDeviceDimensionsPatch;"
 
     override fun execute(context: BytecodeContext) {
-        SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            SwitchPreference(
-                "revanced_spoof_device_dimensions",
-                StringResource("revanced_spoof_device_dimensions_title", "Spoof device dimensions"),
-                StringResource("revanced_spoof_device_dimensions_summary_on", "Device dimensions spoofed"),
-                StringResource(
-                    "revanced_spoof_device_dimensions_summary_off",
-                    "Device dimensions not spoofed\\n\\n"
-                        + "Spoofing the device dimensions can unlock higher video qualities but unknown side effects may occur"
-                    ),
-            )
-        )
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(SwitchPreference("revanced_spoof_device_dimensions",))
 
         DeviceDimensionsModelToStringFingerprint.result
             ?.mutableClass?.methods?.find { method -> method.name == "<init>" }

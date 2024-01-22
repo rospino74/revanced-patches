@@ -46,23 +46,7 @@ object RemoveTrackingQueryParameterPatch : BytecodePatch(
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/RemoveTrackingQueryParameterPatch;"
 
     override fun execute(context: BytecodeContext) {
-        SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            SwitchPreference(
-                "revanced_remove_tracking_query_parameter",
-                StringResource(
-                    "revanced_remove_tracking_query_parameter_title",
-                    "Remove tracking query parameter"
-                ),
-                StringResource(
-                    "revanced_remove_tracking_query_parameter_summary_on",
-                    "Tracking query parameter is removed from links"
-                ),
-                StringResource(
-                    "revanced_remove_tracking_query_parameter_summary_off",
-                    "Tracking query parameter is not removed from links"
-                ),
-            )
-        )
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(SwitchPreference("revanced_remove_tracking_query_parameter"))
 
         fun MethodFingerprint.hook(
             getInsertIndex: PatternScanResult.() -> Int,

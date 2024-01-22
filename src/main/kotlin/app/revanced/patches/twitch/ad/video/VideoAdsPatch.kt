@@ -121,22 +121,6 @@ object VideoAdsPatch : BaseAdPatch(
             )
         }  ?: throw ContentConfigShowAdsFingerprint.exception
 
-        SettingsPatch.PreferenceScreen.ADS.CLIENT_SIDE.addPreferences(
-            SwitchPreference(
-                "revanced_block_video_ads",
-                StringResource(
-                    "revanced_block_video_ads",
-                    "Block video ads"
-                ),
-                StringResource(
-                    "revanced_block_video_ads_on",
-                    "Video ads are blocked"
-                ),
-                StringResource(
-                    "revanced_block_video_ads_off",
-                    "Video ads are unblocked"
-                )
-            )
-        )
+        SettingsPatch.PreferenceScreen.ADS.CLIENT_SIDE.addPreferences(SwitchPreference("revanced_block_video_ads"))
     }
 }

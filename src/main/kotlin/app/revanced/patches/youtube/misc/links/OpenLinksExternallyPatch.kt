@@ -65,14 +65,7 @@ object OpenLinksExternallyPatch : BaseTransformInstructionsPatch<Pair<Int, Int>>
     }
 
     override fun execute(context: BytecodeContext) {
-        SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            SwitchPreference(
-                "revanced_external_browser",
-                StringResource("revanced_external_browser_title", "Open links in browser"),
-                StringResource("revanced_external_browser_summary_on", "Opening links externally"),
-                StringResource("revanced_external_browser_summary_off", "Opening links in app")
-            )
-        )
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(SwitchPreference("revanced_external_browser"))
 
         super.execute(context)
     }

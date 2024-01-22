@@ -18,8 +18,8 @@ object GmsCoreSupportResourcePatch : BaseGmsCoreSupportResourcePatch(
     override fun execute(context: ResourceContext) {
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             IntentPreference(
-                StringResource("microg_settings", "GmsCore Settings"),
-                StringResource("microg_settings_summary", "Settings for GmsCore"),
+                "microg_settings",
+                "microg_settings_summary",
                 IntentPreference.Intent("", "org.microg.gms.ui.SettingsActivity") {
                     "$gmsCoreVendor.android.gms"
                 }

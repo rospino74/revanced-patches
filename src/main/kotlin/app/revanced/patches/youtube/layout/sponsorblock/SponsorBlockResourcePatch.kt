@@ -22,8 +22,8 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             IntentPreference(
-                StringResource("revanced_sponsorblock_settings_title", "SponsorBlock"),
-                StringResource("revanced_sponsorblock_settings_summary", "SponsorBlock related settings"),
+                "revanced_sponsorblock_settings_title",
+                "revanced_sponsorblock_settings_summary",
                 SettingsPatch.newIntent("sponsorblock_settings")
             )
         )

@@ -12,7 +12,7 @@ import java.io.Closeable
 
 @Patch(dependencies = [SettingsPatch::class, ResourceMappingPatch::class])
 internal object SeekbarPreferencesPatch : ResourcePatch(), Closeable {
-    private val seekbarPreferences = mutableListOf<BasePreference>()
+    private val seekbarPreferences = mutableSetOf<BasePreference>()
 
     override fun execute(context: ResourceContext) {
         // Nothing to do here. All work is done in close method.
@@ -22,12 +22,7 @@ internal object SeekbarPreferencesPatch : ResourcePatch(), Closeable {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
                 "revanced_seekbar_preference_screen",
-                StringResource("revanced_seekbar_preference_screen_title", "Seekbar"),
                 seekbarPreferences,
-                StringResource(
-                    "revanced_seekbar_preference_screen_summary",
-                    "Settings for the seekbar"
-                )
             )
         )
     }

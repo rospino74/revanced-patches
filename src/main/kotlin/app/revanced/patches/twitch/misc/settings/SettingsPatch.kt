@@ -178,9 +178,8 @@ object SettingsPatch : BytecodePatch(
                 override fun transform(): PreferenceCategory {
                     return PreferenceCategory(
                         key,
-                        StringResource("${key}_title", title),
-                        preferences.sortedBy { it.title.value },
-                        "app.revanced.integrations.twitch.settings.preference.CustomPreferenceCategory"
+                        "${key}_title",
+                        preferences,
                     )
                 }
             }

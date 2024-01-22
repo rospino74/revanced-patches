@@ -40,23 +40,7 @@ object RestoreOldSeekbarThumbnailsPatch : BytecodePatch(
         "Lapp/revanced/integrations/youtube/patches/RestoreOldSeekbarThumbnailsPatch;"
 
     override fun execute(context: BytecodeContext) {
-        SeekbarPreferencesPatch.addPreferences(
-            SwitchPreference(
-                "revanced_restore_old_seekbar_thumbnails",
-                StringResource(
-                    "revanced_restore_old_seekbar_thumbnails_title",
-                    "Restore old seekbar thumbnails"
-                ),
-                StringResource(
-                    "revanced_restore_old_seekbar_thumbnails_summary_on",
-                    "Seekbar thumbnails will appear above the seekbar"
-                ),
-                StringResource(
-                    "revanced_restore_old_seekbar_thumbnails_summary_off",
-                    "Seekbar thumbnails will appear in fullscreen"
-                ),
-            )
-        )
+        SeekbarPreferencesPatch.addPreferences(SwitchPreference("revanced_restore_old_seekbar_thumbnails"))
 
         FullscreenSeekbarThumbnailsFingerprint.result?.mutableMethod?.apply {
             val moveResultIndex = getInstructions().lastIndex - 1

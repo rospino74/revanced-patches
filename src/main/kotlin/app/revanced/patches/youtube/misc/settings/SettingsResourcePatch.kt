@@ -12,8 +12,8 @@ import org.w3c.dom.Element
 
 object SettingsResourcePatch : BaseSettingsResourcePatch(
     IntentPreference(
-        StringResource("revanced_settings", "ReVanced"),
-        StringResource("revanced_settings_summary", "Settings for ReVanced"),
+        "revanced_settings",
+        "revanced_settings_summary",
         SettingsPatch.newIntent("revanced_settings")
     ) to "settings_fragment",
     dependencies = setOf(

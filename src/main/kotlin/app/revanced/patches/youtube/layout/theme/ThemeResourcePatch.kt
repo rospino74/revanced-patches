@@ -23,18 +23,8 @@ internal object ThemeResourcePatch : ResourcePatch() {
 
     override fun execute(context: ResourceContext) {
         SeekbarPreferencesPatch.addPreferences(
-            SwitchPreference(
-                "revanced_seekbar_custom_color",
-                StringResource("revanced_seekbar_custom_color_title", "Enable custom seekbar color"),
-                StringResource("revanced_seekbar_custom_color_summary_on", "Custom seekbar color is shown"),
-                StringResource("revanced_seekbar_custom_color_summary_off", "Original seekbar color is shown")
-            ),
-            TextPreference(
-                "revanced_seekbar_custom_color_value",
-                StringResource("revanced_seekbar_custom_color_value_title", "Custom seekbar color"),
-                StringResource("revanced_seekbar_custom_color_value_summary", "The color of the seekbar"),
-                InputType.TEXT_CAP_CHARACTERS
-            )
+            SwitchPreference("revanced_seekbar_custom_color"),
+            TextPreference("revanced_seekbar_custom_color_value", InputType.TEXT_CAP_CHARACTERS)
         )
 
         // Edit theme colors via resources.

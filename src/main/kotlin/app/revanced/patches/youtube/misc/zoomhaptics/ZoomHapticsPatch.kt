@@ -23,14 +23,7 @@ object ZoomHapticsPatch : BytecodePatch(
     setOf(ZoomHapticsFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
-        SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            SwitchPreference(
-                "revanced_disable_zoom_haptics",
-                StringResource("revanced_disable_zoom_haptics_title", "Disable zoom haptics"),
-                StringResource("revanced_disable_zoom_haptics_summary_on", "Haptics are disabled"),
-                StringResource("revanced_disable_zoom_haptics_summary_off", "Haptics are enabled")
-            )
-        )
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(SwitchPreference("revanced_disable_zoom_haptics"))
 
         val zoomHapticsFingerprintMethod = ZoomHapticsFingerprint.result!!.mutableMethod
 

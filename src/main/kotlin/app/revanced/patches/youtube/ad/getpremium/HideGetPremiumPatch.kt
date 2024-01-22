@@ -39,23 +39,7 @@ object HideGetPremiumPatch : BytecodePatch(setOf(GetPremiumViewFingerprint)) {
         "Lapp/revanced/integrations/youtube/patches/HideGetPremiumPatch;"
 
     override fun execute(context: BytecodeContext) {
-        SettingsPatch.PreferenceScreen.ADS.addPreferences(
-            SwitchPreference(
-                "revanced_hide_get_premium",
-                StringResource(
-                    "revanced_hide_get_premium_title",
-                    "Hide YouTube Premium promotions"
-                ),
-                StringResource(
-                    "revanced_hide_get_premium_summary_on",
-                    "YouTube Premium promotions under video player are hidden"
-                ),
-                StringResource(
-                    "revanced_hide_get_premium_summary_off",
-                    "YouTube Premium promotions under video player are shown"
-                )
-            )
-        )
+        SettingsPatch.PreferenceScreen.ADS.addPreferences(SwitchPreference("revanced_hide_get_premium"))
 
         GetPremiumViewFingerprint.result?.let {
             it.mutableMethod.apply {

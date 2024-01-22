@@ -82,10 +82,9 @@ object SettingsPatch : BytecodePatch(
         PreferenceScreen.MISC.addPreferences(
             TextPreference(
                 key = null,
-                title = StringResource("revanced_pref_import_export_title", "Import / Export"),
-                summary = StringResource("revanced_pref_import_export_summary", "Import / Export ReVanced settings"),
+                titleKey = "revanced_pref_import_export_title",
+                summaryKey = "revanced_pref_import_export_summary",
                 inputType = InputType.TEXT_MULTI_LINE,
-                tag = "app.revanced.integrations.shared.settings.preference.ImportExportPreference"
             )
         )
     }

@@ -42,14 +42,7 @@ object HideCaptionsButtonPatch : BytecodePatch(
     setOf(SubtitleButtonControllerFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_hide_captions_button",
-                StringResource("revanced_hide_captions_button_title", "Hide captions button"),
-                StringResource("revanced_hide_captions_button_summary_on", "Captions button is hidden"),
-                StringResource("revanced_hide_captions_button_summary_off", "Captions button is shown")
-            )
-        )
+        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(SwitchPreference("revanced_hide_captions_button"))
 
         val subtitleButtonControllerMethod = SubtitleButtonControllerFingerprint.result!!.mutableMethod
 
